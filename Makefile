@@ -1,7 +1,10 @@
 executables :=
 
-# Day 1
+# Day 1 - Numpy
 executables += 1/a.py 1/b.py
+
+# Day 2 - AWK
+executables += 2/a.awk 2/b.awk
 
 all: $(executables)
 
