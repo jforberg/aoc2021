@@ -1,11 +1,9 @@
 #!/usr/bin/python3
 
 import numpy as np
-import os
+import sys
 
-my_dir = os.path.dirname(os.path.realpath(__file__))
-
-data = np.loadtxt('%s/input.txt' % my_dir)
+data = np.loadtxt(sys.stdin)
 
 answer = np.count_nonzero(np.diff(data) > 0)
 print(answer)

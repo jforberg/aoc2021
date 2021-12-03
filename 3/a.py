@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 
 import numpy as np
-import os
 from scipy import stats
+import sys
 
-my_dir = os.path.dirname(os.path.realpath(__file__))
-
-data = np.genfromtxt('%s/input.txt' % my_dir, dtype=int, delimiter=12*[1])
+data = np.genfromtxt(sys.stdin, dtype=int, delimiter=12*[1])
 mode, counts = stats.mode(data, axis=0)
 
 def from_bits(bs):

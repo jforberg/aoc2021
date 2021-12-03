@@ -1,14 +1,12 @@
 #!/usr/bin/python3
 
 import numpy as np
-import os
 from scipy import stats
+import sys
 
 d = 12
 
-my_dir = os.path.dirname(os.path.realpath(__file__))
-
-data = np.genfromtxt('%s/input.txt' % my_dir, dtype=int, delimiter=12*[1])
+data = np.genfromtxt(sys.stdin, dtype=int, delimiter=12*[1])
 
 oxy_candidates = data
 co2_candidates = data

@@ -16,7 +16,8 @@ run: $(executables)
 	echo --------------------; \
 	echo; \
 	for e in $(executables); do \
+		number="$$(dirname $$e)"; \
 		name="$${e%%.*}"; \
 		printf "$$name\t"; \
-		"./$$e"; \
+		"./$$e" <"$$number"/input.txt; \
 	done
