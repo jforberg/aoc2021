@@ -9,8 +9,10 @@ executables += 2/a.awk 2/b.awk
 # Day 3 - Numpy
 executables += 3/a.py 3/b.py
 
+.PHONY: all
 all: $(executables)
 
+.PHONY: run
 run: $(executables)
 	echo; \
 	echo --------------------; \
