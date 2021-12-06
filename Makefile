@@ -15,6 +15,10 @@ executables += 4/a.py 4/b.py
 # Day 5 - Numpy
 executables += 5/a.py 5/b.py
 
+# Day 6 - C
+executables += 6/a 6/b
+
+# Main rules
 .PHONY: all
 all: $(executables)
 
@@ -29,3 +33,12 @@ run: $(executables)
 		printf "$$name\t"; \
 		"./$$e" <"$$number"/input.txt; \
 	done
+
+.PHONY: clean
+clean:
+	git clean -fdX
+
+# Build rules for C code
+CFLAGS := -O2 -Wall -Wno-unused-function
+
+%: %.c Makefile
