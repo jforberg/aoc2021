@@ -45,3 +45,9 @@ clean:
 CFLAGS := -O2 -Wall -Wno-unused-function
 
 %: %.c Makefile
+
+# Build rules for Haskell code
+HSFLAGS := -O2
+
+%: %.hs Makefile
+	stack ghc -- $(HSFLAGS) $<
