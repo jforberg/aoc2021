@@ -21,6 +21,9 @@ executables += 6/a 6/b
 # Day 7 - Numpy
 executables += 7/a.py 7/b.py
 
+# Day 8 - Numpy
+executables += 8/a.py 8/b.py
+
 # Main rules
 .PHONY: all
 all: $(executables)
