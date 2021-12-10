@@ -27,6 +27,9 @@ executables += 8/a.py 8/b.py
 # Day 9 - Numpy
 executables += 9/a.py 9/b.py
 
+# Day 10 - Haskell
+executables += 10/a 10/b
+
 # Main rules
 .PHONY: all
 all: $(executables)
@@ -51,3 +54,9 @@ clean:
 CFLAGS := -O2 -Wall -Wno-unused-function
 
 %: %.c Makefile
+
+# Build rules for Haskell codes
+HSFLAGS := -O2
+
+%: %.hs Makefile
+	stack ghc -- $(HSFLAGS) $<
