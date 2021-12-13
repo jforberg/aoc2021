@@ -36,6 +36,9 @@ executables += 11/a.py 11/b.py
 # Day 12 - Haskell
 executables += 12/a 12/b
 
+# Day 13 - Numpy
+executables += 13/a.py 13/b.py
+
 # Main rules
 .PHONY: all
 all: $(executables)
