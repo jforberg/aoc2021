@@ -60,7 +60,7 @@ clean:
 	git clean -fdX
 
 # Build rules for C code
-CFLAGS := -O2 -Wall -Wno-unused-function
+CFLAGS := -O2 -Wall -Wno-unused-function -ggdb
 
 %: %.c Makefile
 
