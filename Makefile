@@ -42,12 +42,17 @@ executables += 13/a.py 13/b.py
 # Day 14 - Haskell
 executables += 14/a 14/b
 
-# Main rules
-.PHONY: all
-all: $(executables)
+# Day 15 - C
+executables += 15/a 15/b
 
+results := $(addprefix .results/, $(executables))
+
+# Main rules
 .PHONY: run
-run: $(executables)
+run: $(results)
+
+.PHONY: runall
+runall: $(executables)
 	echo; \
 	echo --------------------; \
 	echo; \
@@ -58,17 +63,23 @@ run: $(executables)
 		"./$$e" <"$$number"/input.txt; \
 	done
 
+
 .PHONY: clean
 clean:
 	git clean -fdX
 
-# Build rules for C code
-CFLAGS := -O2 -Wall -Wno-unused-function
+# Running solutions to get a result
+.results/%: %
+	@mkdir -p $(dir $@)
+	$< >$@ <$(dir $<)/input.txt
+	@cat $@
 
-%: %.c Makefile
+# Build rules for C code
+CFLAGS := $(shell pkg-config --cflags glib-2.0) -O2 -Wall -Wno-unused-function -ggdb
+LDLIBS := $(shell pkg-config --libs glib-2.0)
 
 # Build rules for Haskell codes
 HSFLAGS := -O2
 
-%: %.hs Makefile
-	stack ghc -- $(HSFLAGS) $<
+%: %.hs
+	stack ghc -- $(HSFLAGS) -o $@ $<
