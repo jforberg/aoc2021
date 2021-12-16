@@ -45,6 +45,9 @@ executables += 14/a 14/b
 # Day 15 - C
 executables += 15/a 15/b
 
+# Day 16 - Haskell
+executables += 16/a 16/b
+
 results := $(addprefix .results/, $(executables))
 
 # Main rules
